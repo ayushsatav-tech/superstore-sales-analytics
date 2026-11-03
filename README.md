@@ -1,4 +1,7 @@
 # Superstore Sales Analytics Dashboard
+## 🚀 Live Demo
+
+[Click here to view the live dashboard](https://ayushsatav-tech-ncinajukvufdw8m8ay9wqc.streamlit.app/)
 
 ## Project Overview
 A Python-based Business Analytics project that analyses Superstore sales data and presents important business insights through an interactive Streamlit dashboard.
