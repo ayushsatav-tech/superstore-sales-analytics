@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
 
-DATA_PATH = Path("data/superstore.csv")
+DATA_PATH = Path("data/superstore.csv.csv")
 OUTPUT_DIR = Path("outputs")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -12,10 +12,10 @@ OUTPUT_DIR.mkdir(exist_ok=True)
 def load_data():
     if not DATA_PATH.exists():
         raise FileNotFoundError(
-            "Dataset not found. Add superstore.csv inside the data folder."
+            "Dataset not found. Add superstore.csv.csv inside the data folder."
         )
 
-    df = pd.read_csv(DATA_PATH)
+    df = df = pd.read_csv(DATA_PATH, encoding="latin1")
     df.columns = df.columns.str.strip()
 
     required_columns = [
