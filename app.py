@@ -14,11 +14,11 @@ st.set_page_config(
 st.title("📊 Superstore Sales Analytics Dashboard")
 st.write("Explore sales, profit and business performance.")
 
-DATA_PATH = Path("data/superstore.csv")
+DATA_PATH = Path("data/superstore.csv.csv")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv(DATA_PATH)
+    df = df = pd.read_csv(DATA_PATH, encoding="latin1")
     df.columns = df.columns.str.strip()
 
     df["Sales"] = pd.to_numeric(df["Sales"], errors="coerce")
@@ -30,7 +30,7 @@ def load_data():
     return df.dropna(subset=["Sales", "Profit", "Region"])
 
 if not DATA_PATH.exists():
-    st.error("Dataset not found. Add data/superstore.csv to the repository.")
+    st.error("Dataset not found. Add data/superstore.csv.csv to the repository.")
     st.stop()
 
 df = load_data()
@@ -108,6 +108,6 @@ csv = filtered_df.to_csv(index=False).encode("utf-8")
 st.download_button(
     label="Download Filtered Data",
     data=csv,
-    file_name="filtered_superstore.csv",
+    file_name="filtered_superstore.csv.csv",
     mime="text/csv"
 )
